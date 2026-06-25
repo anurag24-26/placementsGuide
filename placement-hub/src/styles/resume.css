@@ -1,0 +1,105 @@
+.resume-page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.resume-header {
+  margin-bottom: 2.5rem;
+}
+
+.resume-header h1 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin-bottom: 0.5rem;
+}
+
+.resume-header p {
+  color: var(--text-secondary);
+}
+
+.resume-section {
+  margin-bottom: 3rem;
+}
+
+.resume-section h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1.3rem;
+}
+
+.checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.checklist-item:hover {
+  border-color: var(--success);
+}
+
+.check-icon {
+  color: var(--success);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.checklist-item p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.tips-grid,
+.mistakes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+}
+
+.tip-card,
+.mistake-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.3rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.tip-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+}
+
+.mistake-card:hover {
+  border-color: var(--danger);
+  transform: translateY(-4px);
+}
+
+.tip-card h3,
+.mistake-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.tip-card p,
+.mistake-card p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .checklist-grid,
+  .tips-grid,
+  .mistakes-grid {
+    grid-template-columns: 1fr;
+  }
+}
