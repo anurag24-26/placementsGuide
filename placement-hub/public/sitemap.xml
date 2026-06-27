@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://placementvault.com/</loc>
+    <loc>https://crackplacement-dun.vercel.app/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://placementvault.com/os</loc>
+    <loc>https://crackplacement-dun.vercel.app/os</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://placementvault.com/dbms</loc>
+    <loc>https://crackplacement-dun.vercel.app/dbms</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://placementvault.com/cn</loc>
+    <loc>https://crackplacement-dun.vercel.app/cn</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://placementvault.com/oops</loc>
+    <loc>https://crackplacement-dun.vercel.app/oops</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://placementvault.com/resume</loc>
+    <loc>https://crackplacement-dun.vercel.app/resume</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://placementvault.com/roadmap</loc>
+    <loc>https://crackplacement-dun.vercel.app/roadmap</loc>
     <priority>0.8</priority>
   </url>
 </urlset>

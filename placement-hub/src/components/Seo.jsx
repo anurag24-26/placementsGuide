@@ -15,7 +15,7 @@
 import { Helmet } from "react-helmet-async";
 
 const SITE_NAME = "PlacementVault";
-const SITE_URL = "https://placementvault.com"; // update once domain is live
+const SITE_URL = "https://crackplacement-dun.vercel.app"; // update once domain is live
 const DEFAULT_IMAGE = `${SITE_URL}/og-image.png`;
 
 export default function Seo({ title, description, path = "/", image = DEFAULT_IMAGE }) {
