@@ -3,10 +3,10 @@ import DifficultyBadge from "./DifficultyBadge";
 import "../styles/accordion.css";
 
 export default function Accordion({ items = [] }) {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openId, setOpenId] = useState(null);
 
-  const toggle = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
+  const toggle = (id) => {
+    setOpenId(openId === id ? null : id);
   };
 
   if (items.length === 0) {
@@ -15,28 +15,37 @@ export default function Accordion({ items = [] }) {
 
   return (
     <div className="accordion">
-      {items.map((item, index) => (
-        <div
-          key={index}
-          className={`accordion-item ${openIndex === index ? "open" : ""}`}
-        >
-          <button
-            className="accordion-header"
-            onClick={() => toggle(index)}
+      {items.map((item) => {
+        const isOpen = openId === item.id;
+        return (
+          <div
+            key={item.id}
+            className={`accordion-item ${isOpen ? "open" : ""}`}
           >
-            <span className="accordion-question">{item.question}</span>
-            <div className="accordion-header-right">
-              {item.difficulty && <DifficultyBadge level={item.difficulty} />}
-              <span className="accordion-icon">{openIndex === index ? "−" : "+"}</span>
-            </div>
-          </button>
-          <div className="accordion-body">
-            <div className="accordion-content">
-              <p>{item.answer}</p>
+            <button
+              className="accordion-header"
+              onClick={() => toggle(item.id)}
+              aria-expanded={isOpen}
+              aria-controls={`accordion-content-${item.id}`}
+            >
+              <span className="accordion-question">{item.question}</span>
+              <div className="accordion-header-right">
+                {item.difficulty && <DifficultyBadge level={item.difficulty} />}
+                <span className="accordion-icon">{isOpen ? "−" : "+"}</span>
+              </div>
+            </button>
+            <div
+              className="accordion-body"
+              id={`accordion-content-${item.id}`}
+              role="region"
+            >
+              <div className="accordion-content">
+                <p>{item.answer}</p>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }

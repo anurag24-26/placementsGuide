@@ -1,25 +1,83 @@
+import { Link } from "react-router-dom";
 import "../styles/roadmap.css";
 
-const roadmapData = {
-  beginner: [
-    "Learn a programming language (C++/Java/Python)",
-    "Understand basic data structures: Arrays, Strings, Linked Lists",
-    "Start solving easy-level coding problems",
-    "Learn Git & GitHub basics",
-  ],
-  intermediate: [
-    "Master core CS subjects: OS, DBMS, CN, OOPs",
-    "Practice medium-level DSA problems daily",
-    "Build 2-3 mini projects",
-    "Start preparing your resume",
-  ],
-  advanced: [
-    "Solve hard-level DSA & company-specific questions",
-    "Mock interviews & HR round preparation",
-    "Apply to companies & track applications",
-    "Revise core subjects before interviews",
-  ],
-};
+// Each item can optionally include a `link` ({ to, label }) — rendered as
+// an inline Link inside the list text so the roadmap doubles as navigation,
+// not just a static checklist.
+
+const roadmapData = [
+  {
+    key: "beginner",
+    stage: "Stage 1",
+    title: "Beginner",
+    icon: "🌱",
+    marker: "1",
+    markerClass: "beginner-marker",
+    items: [
+      { text: "Learn a programming language (C++ / Java / Python)" },
+      { text: "Understand basic data structures: Arrays, Strings, Linked Lists" },
+      { text: "Start solving easy-level coding problems" },
+      { text: "Learn Git & GitHub basics" },
+    ],
+  },
+  {
+    key: "intermediate",
+    stage: "Stage 2",
+    title: "Intermediate",
+    icon: "⚙️",
+    marker: "2",
+    markerClass: "intermediate-marker",
+    items: [
+      {
+        text: "Master core CS subjects: ",
+        link: { to: "/os", label: "OS" },
+        suffix: ", ",
+        extraLinks: [
+          { to: "/dbms", label: "DBMS" },
+          { to: "/cn", label: "CN" },
+          { to: "/oops", label: "OOPs" },
+        ],
+      },
+      { text: "Practice medium-level DSA problems daily" },
+      { text: "Build 2-3 mini projects" },
+      { text: "Start preparing your resume", link: { to: "/resume", label: "resume" } },
+    ],
+  },
+  {
+    key: "advanced",
+    stage: "Stage 3",
+    title: "Advanced",
+    icon: "🚀",
+    marker: "3",
+    markerClass: "advanced-marker",
+    items: [
+      { text: "Solve hard-level DSA & company-specific questions" },
+      { text: "Mock interviews & HR round preparation" },
+      { text: "Apply to companies & track applications" },
+      { text: "Revise core subjects before interviews" },
+    ],
+  },
+];
+
+function ListItem({ item }) {
+  // Renders plain text, or text with one or more inline links woven in.
+  if (!item.link) return <li>{item.text}</li>;
+
+  return (
+    <li>
+      {item.text}
+      <Link to={item.link.to}>{item.link.label}</Link>
+      {item.suffix}
+      {item.extraLinks &&
+        item.extraLinks.map((l, i) => (
+          <span key={l.to}>
+            <Link to={l.to}>{l.label}</Link>
+            {i < item.extraLinks.length - 1 ? ", " : ""}
+          </span>
+        ))}
+    </li>
+  );
+}
 
 export default function Roadmap() {
   return (
@@ -30,41 +88,25 @@ export default function Roadmap() {
       </div>
 
       <div className="timeline">
-        <div className="timeline-section">
-          <div className="timeline-marker beginner-marker">1</div>
-          <div className="timeline-card">
-            <h2>Beginner</h2>
-            <ul>
-              {roadmapData.beginner.map((item, idx) => (
-                <li key={idx}>{item}</li>
-              ))}
-            </ul>
+        {roadmapData.map((section) => (
+          <div className="timeline-section" key={section.key}>
+            <div className={`timeline-marker ${section.markerClass}`}>
+              {section.marker}
+            </div>
+            <div className="timeline-card">
+              <span className="stage-label">{section.stage}</span>
+              <div className="timeline-card-head">
+                <span className="timeline-card-icon">{section.icon}</span>
+                <h2>{section.title}</h2>
+              </div>
+              <ul>
+                {section.items.map((item, idx) => (
+                  <ListItem item={item} key={idx} />
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
-
-        <div className="timeline-section">
-          <div className="timeline-marker intermediate-marker">2</div>
-          <div className="timeline-card">
-            <h2>Intermediate</h2>
-            <ul>
-              {roadmapData.intermediate.map((item, idx) => (
-                <li key={idx}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <div className="timeline-section">
-          <div className="timeline-marker advanced-marker">3</div>
-          <div className="timeline-card">
-            <h2>Advanced</h2>
-            <ul>
-              {roadmapData.advanced.map((item, idx) => (
-                <li key={idx}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

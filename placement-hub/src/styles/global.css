@@ -1,34 +1,34 @@
 /* =========================================
    PLACEMENTVAULT - GLOBAL CSS
-   Minimal Learning Interface
+   Minimal Learning Interface (Light / Paper Theme)
 ========================================= */
 
 :root {
   /* Backgrounds */
-  --bg-primary: #0b1220;
-  --bg-secondary: #111827;
+  --bg-primary: #f7f5f0;
+  --bg-secondary: #efebe3;
 
   /* Cards */
-  --bg-card: #172033;
-  --bg-card-hover: #1d2940;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fbf9f4;
 
   /* Borders */
-  --border-color: #273449;
+  --border-color: #e3ddd0;
 
   /* Text */
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
+  --text-primary: #25241f;
+  --text-secondary: #5e5a51;
+  --text-muted: #8c8678;
 
   /* Accent */
-  --accent: #38bdf8;
-  --accent-hover: #0ea5e9;
-  --accent-soft: rgba(56, 189, 248, 0.12);
+  --accent: #3f7d6c;
+  --accent-hover: #346a5b;
+  --accent-soft: rgba(63, 125, 108, 0.1);
 
   /* Status */
-  --success: #22c55e;
-  --warning: #f59e0b;
-  --danger: #ef4444;
+  --success: #2f9e5b;
+  --warning: #c8860d;
+  --danger: #c0392b;
 
   /* Radius */
   --radius-sm: 8px;
@@ -36,8 +36,8 @@
   --radius-lg: 18px;
 
   /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --shadow-sm: 0 2px 8px rgba(37, 36, 31, 0.06);
+  --shadow-md: 0 10px 30px rgba(37, 36, 31, 0.1);
 
   /* Layout */
   --max-width: 1200px;
@@ -177,7 +177,7 @@ button {
 
 .btn-primary {
   background: var(--accent);
-  color: white;
+  color: #ffffff;
 }
 
 .btn-primary:hover {
@@ -241,6 +241,8 @@ button {
   border: 1px solid var(--border-color);
 
   border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-sm);
 
   transition:
     transform 0.25s ease,
@@ -334,7 +336,7 @@ button {
 .filter-chip.active {
   background: var(--accent);
   border-color: var(--accent);
-  color: white;
+  color: #ffffff;
 }
 
 /* =========================================
@@ -355,17 +357,17 @@ button {
 }
 
 .difficulty-badge.easy {
-  background: rgba(34, 197, 94, 0.12);
+  background: rgba(47, 158, 91, 0.1);
   color: var(--success);
 }
 
 .difficulty-badge.medium {
-  background: rgba(245, 158, 11, 0.12);
+  background: rgba(200, 134, 13, 0.12);
   color: var(--warning);
 }
 
 .difficulty-badge.hard {
-  background: rgba(239, 68, 68, 0.12);
+  background: rgba(192, 57, 43, 0.1);
   color: var(--danger);
 }
 
@@ -387,7 +389,7 @@ button {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3b4b63;
+  background: #cfc7b6;
 }
 
 /* =========================================

@@ -1,11 +1,77 @@
 <!doctype html>
 <html lang="en">
+  <!-- lang="en" already correct — tells search engines & screen readers the page language -->
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="google-site-verification" content="p8huiWZrD_0F7zx8cbdNwzX8s4t3QuVGjd6W0aXQD0U" />
+
+    <!-- viewport: keep this exactly as-is, required for mobile-first ranking -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>placement-hub</title>
+
+    <!-- favicon: fine as-is -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- google-site-verification: fine, keep it (needed for Search Console) -->
+    <meta name="google-site-verification" content="p8huiWZrD_0F7zx8cbdNwzX8s4t3QuVGjd6W0aXQD0U" />
+
+    <!--
+      TITLE: was just "placement-hub" — meaningless to both Google and humans
+      scanning a search results page. This is the single highest-impact line
+      for SEO on the whole file. Keep it under ~60 characters so Google
+      doesn't truncate it. This is the DEFAULT/fallback title — each route
+      will override it via the Seo component (see below).
+    -->
+    <title>PlacementVault — Free Placement Prep for Engineering Students</title>
+
+    <!--
+      META DESCRIPTION: this is what shows as the snippet under your title
+      in Google search results. Without it, Google guesses from page text
+      (unreliable). Keep under ~155 characters.
+    -->
+    <meta
+      name="description"
+      content="Free placement preparation platform for Indian engineering students. OS, DBMS, CN, OOPs, DSA, resume tips, and a structured placement roadmap — all in one place."
+    />
+
+    <!-- ROBOTS: explicitly tell crawlers to index this site and follow links -->
+    <meta name="robots" content="index, follow" />
+
+    <!--
+      CANONICAL: prevents duplicate-content issues if the same page is ever
+      reachable via multiple URLs (e.g. with/without trailing slash, query
+      params). Update the domain once you have one.
+    -->
+    <link rel="canonical" href="https://placementvault.com/" />
+
+    <!--
+      OPEN GRAPH: controls how the site looks when shared on WhatsApp,
+      LinkedIn, Twitter/X, Discord etc. — extremely relevant for you since
+      students share prep resources in WhatsApp groups constantly.
+    -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="PlacementVault" />
+    <meta property="og:title" content="PlacementVault — Free Placement Prep for Engineering Students" />
+    <meta
+      property="og:description"
+      content="OS, DBMS, CN, OOPs, DSA, resume tips, and a structured placement roadmap — all in one place, free."
+    />
+    <meta property="og:url" content="https://placementvault.com/" />
+    <meta property="og:image" content="https://placementvault.com/og-image.png" />
+    <!-- og-image.png: create one 1200x630px banner with your logo + tagline, place in /public -->
+
+    <!-- TWITTER CARD: same idea as OG tags, specifically for X/Twitter previews -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PlacementVault — Free Placement Prep for Engineering Students" />
+    <meta
+      name="twitter:description"
+      content="Free OS, DBMS, CN, OOPs, DSA & resume prep for Indian engineering students."
+    />
+    <meta name="twitter:image" content="https://placementvault.com/og-image.png" />
+
+    <!--
+      THEME COLOR: matches the browser UI chrome (e.g. Android Chrome address
+      bar) to your site theme. Use your --bg-primary paper color, not blue.
+    -->
+    <meta name="theme-color" content="#f7f5f0" />
   </head>
   <body>
     <div id="root"></div>

@@ -202,3 +202,117 @@
     grid-template-columns: 1fr;
   }
 }
+/* === Additions for updated Home.jsx === */
+/* Add these rules to src/styles/home.css (keeps existing rules untouched) */
+
+.subject-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--text-muted, #6b7280);
+  margin: 0.5rem 0;
+}
+
+.subject-topics {
+  font-weight: 500;
+}
+
+.subject-level {
+  background: var(--accent-soft, #eef2ff);
+  color: var(--accent, #4f46e5);
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.subject-card-soon {
+  opacity: 0.85;
+  border-style: dashed;
+}
+
+.subject-card-soon:hover {
+  opacity: 1;
+}
+
+/* overview-card is now a Link, so reset anchor defaults */
+.overview-card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.overview-card:hover {
+  transform: translateY(-2px);
+}
+
+
+/* === Additions for hero doodle (Home.jsx) === */
+/* Append to src/styles/home.css. These rules turn .hero into a two-column
+   layout (text + SVG) on desktop, and stack to single column on mobile. */
+
+.hero {
+  text-align: left;
+}
+
+.hero-grid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.hero-content {
+  max-width: 560px;
+  margin: 0;
+}
+
+.hero-content p {
+  margin: 0 0 2rem;
+}
+
+.hero-actions {
+  justify-content: flex-start;
+}
+
+.hero-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-doodle {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    text-align: center;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .hero-content {
+    margin: 0 auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    order: -1;
+  }
+
+  .hero-doodle {
+    max-width: 260px;
+  }
+}
